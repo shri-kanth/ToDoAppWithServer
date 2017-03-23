@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="todoApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="todo.css">
+  </head>
+  <body>
+    <h2>Todo App</h2>
+    <div ng-controller="TodoListController as todoList" class ="container">
+      <span>{{todoList.completed()}} of {{todoList.todoItems.length}} Completed</span>
+      <button type="button" ng-click="todoList.clearFinisihed()">Clear Finished Items</button>
+      <ul>
+        <li ng-repeat="Item in todoList.todoItems">
+            <input type="checkbox" ng-model="Item.done" ng-change="todoList.updateServerItem(Item.itemid)">
+            <span>{{Item.text}}</span>
+        </li>
+      </ul>
+      <form ng-submit="todoList.addTodo()">
+        <input type="text" ng-model="todoList.todoText"  size="30"
+               placeholder="add new Item here">
+        <input type="submit" value="add">
+      </form>
+    </div>
+  </body>
+</html>

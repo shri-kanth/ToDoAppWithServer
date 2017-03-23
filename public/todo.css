@@ -1,0 +1,11 @@
+button {
+  float :right;
+}
+
+.container {
+  max-width: 50%;
+  margin : auto;
+}
+h2{
+  text-align: center;
+}
